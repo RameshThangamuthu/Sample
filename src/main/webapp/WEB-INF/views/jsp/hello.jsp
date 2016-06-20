@@ -41,7 +41,7 @@
  
   <div class="row">
 	<div class="col-md-4">
-		<h2>News</h2>
+		<h2>News1</h2>
 		<p>ABC</p>
 		<p>
 			<a class="btn btn-default" href="#" role="button">View details</a>
