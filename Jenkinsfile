@@ -1,5 +1,5 @@
 #!groovy
-#Jenkinsfile (Scripted Pipeline)
+//Jenkinsfile (Scripted Pipeline)
 node { // <1>
    
    //echo 'Current SCM Branch: ' + BRANCH_NAME; 
