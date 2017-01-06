@@ -25,3 +25,4 @@ node { // <1>
         echo 'Deploying the EDGE project...';
         /* .. snip .. */
     }
+}
