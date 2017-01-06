@@ -1,7 +1,7 @@
 #!groovy
 node {
    echo 'Hello World scm Ramesh';
-   echo 'Current SCM Branch: ' + BRANCH_NAME; 
+   //echo 'Current SCM Branch: ' + BRANCH_NAME; 
    echo 'Current SCM Branch: ' + env.BRANCH_NAME; 
    echo 'Current SCM Branch: ${BRANCH_NAME}'; 
    echo 'Current SCM Branch: ${env.BRANCH_NAME}'; 
