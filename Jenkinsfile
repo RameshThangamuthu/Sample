@@ -13,8 +13,15 @@ node { // <1>
    
     stage('Build') { // <2>
        echo 'Checking out the EDGE project...';
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/RameshThangamuthu/Sample']]]);
+       checkout scm 
+       //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/RameshThangamuthu/Sample']]]);
        echo 'Building the EDGE project...';
+       
+       
+       
+       //archiveArtifacts captures the files built matching the include pattern (**/target/*.jar) and saves them to the Jenkins master for later retrieval.
+       //Archiving artifacts is not a substitute for using external artifact repositories such as Artifactory or Nexus and should be considered only for basic reporting and file archival.
+       archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true //
        /* .. snip .. */
     }
     stage('Test') {
@@ -23,6 +30,8 @@ node { // <1>
     }
     stage('Deploy') {
         echo 'Deploying the EDGE project...';
+       if (currentBuild.result == 'SUCCESS') {
+       }
         /* .. snip .. */
     }
 }
