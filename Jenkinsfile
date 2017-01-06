@@ -1,3 +1,4 @@
+#!groovy
 node {
-   echo 'Hello World scm'
+   echo 'Hello World scm Ramesh'
 }
