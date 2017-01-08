@@ -24,10 +24,9 @@ node { // <1>
     }*/
    
    echo 'Current Build Number: ' + currentBuild.number;  
-   //echo 'Current Build result: ' + currentBuild.result;
+
    echo 'Parameter Owner: ' + params.owner;
-   echo "Parameter Owner: $owner";
-   
+  
    
     stage('Build') { // <2>
        echo 'Checking out the EDGE project...';
