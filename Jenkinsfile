@@ -1,11 +1,12 @@
 #!groovy
 //Jenkinsfile (Scripted Pipeline)
 node { // <1>
-   
-   //echo 'Current SCM Branch: ' + BRANCH_NAME; 
+  
    //echo 'Current SCM Branch: ' + env.BRANCH_NAME; 
    //echo 'Current SCM Branch: ${BRANCH_NAME}'; 
    //echo 'Current SCM Branch: ${env.BRANCH_NAME}';
+   
+   /*
    echo 'Beginning of ENV vars'; 
    //env.each{ k, v -> println "${k}:${v}" };
    
@@ -14,9 +15,8 @@ node { // <1>
         println it
         echo it
     }
-   
    echo 'End of ENV vars';  
-   
+   */
    
    //Setting an environment variable within a Jenkins Pipeline can be done with the withEnv 
    withEnv(["PATH+MAVEN=${tool 'M3'}/bin"]) {
