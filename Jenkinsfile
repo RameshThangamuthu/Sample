@@ -7,8 +7,14 @@ node { // <1>
    //echo 'Current SCM Branch: ${BRANCH_NAME}'; 
    //echo 'Current SCM Branch: ${env.BRANCH_NAME}';
    echo 'Beginning of ENV vars'; 
-   env.each{ k, v -> println "${k}:${v}" };
-   env.each{ k, v -> echo "${k}:${v}" } ;
+   //env.each{ k, v -> println "${k}:${v}" };
+   
+   sh 'env > env.txt'
+    readFile('env.txt').split("\r?\n").each {
+        println it
+        echo it
+    }
+   
    echo 'End of ENV vars';  
    
    
