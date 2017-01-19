@@ -1,0 +1,8 @@
+FROM maven:3.2-jdk-7-onbuild
+MAINTAINER  Ramesh Thangamuthu <Ramesh.Thangamuthu@aricent.com>
+RUN mkdir -p /tmp/run
+ADD sample.tar /tmp/run
+RUN cd /tmp/run &&  jar -xvf spring3-mvc-maven-xml-hello-world-1.0-SNAPSHOT.war
+WORKDIR /tmp/run
+CMD mvn jetty:run
+#CMD echo hello
