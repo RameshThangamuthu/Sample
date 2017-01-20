@@ -1,1 +1,1 @@
-
+$(mvn -Dtest=TestDocker)
