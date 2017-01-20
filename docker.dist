@@ -11,11 +11,11 @@ CMD echo testingStarted
 COPY pom.xml /usr/src/testng/
 
 # Get a clean build immediately after and 'go-offline' to improve subsequent builds
-RUN cd /usr/src/testng && mvn dependency:go-offline
-COPY src /usr/src/testng/src
-WORKDIR /usr/src/testng/
+#RUN cd /usr/src/testng && mvn dependency:go-offline
+#COPY src /usr/src/testng/src
+#WORKDIR /usr/src/testng/
 
 # Additional support files that's needed but not for the build
 #COPY supportfiles /usr/src/testng/supportfiles
-CMD [ "mvn -Dtest=TestDocker" ]
+#CMD [ "mvn -Dtest=TestDocker" ]
 #CMD [ "mvn test" ]
