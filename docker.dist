@@ -7,8 +7,8 @@ WORKDIR /tmp/run
 CMD mvn jetty:run
 #CMD echo hello
 # Start testing
-CMD echo testingStarted
-COPY pom.xml /usr/src/testng/
+#CMD echo testingStarted
+#COPY pom.xml /usr/src/testng/
 
 # Get a clean build immediately after and 'go-offline' to improve subsequent builds
 #RUN cd /usr/src/testng && mvn dependency:go-offline
