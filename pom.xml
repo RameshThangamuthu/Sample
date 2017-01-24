@@ -39,11 +39,11 @@
 
 	<build>
 
-				    <directory>target</directory>
-				    <outputDirectory>target/classes</outputDirectory>
-				    <finalName>${artifactId}-${version}</finalName>
-				     <sourceDirectory>src/main/java/com/mkyong/controller</sourceDirectory>
-				      <testSourceDirectory>src/main/java/com/mkyong/controller</testSourceDirectory>
+		<directory>target</directory>
+		<outputDirectory>target/classes</outputDirectory>
+		<finalName>${artifactId}-${version}</finalName>
+		<sourceDirectory>src/main/java/com/mkyong/controller</sourceDirectory>
+		<testSourceDirectory>src/main/java/com/mkyong/controller</testSourceDirectory>
 			
 	
 	
