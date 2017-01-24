@@ -14,8 +14,8 @@ COPY pom.xml /usr/src/testng/
 RUN cd /usr/src/testng && mvn dependency:go-offline
 COPY src /usr/src/testng/src
 WORKDIR /usr/src/testng/
-ADD ./usr/src/testing
+ADD . /usr/src/testing
 # Additional support files that's needed but not for the build
 #COPY supportfiles /usr/src/testng/supportfiles
-CMD [ "mvn -Dtest=TestRunner" ]
+ONTEST CMD [ "mvn -Dtest=TestRunner" ]
 #CMD [ "mvn test" ]
