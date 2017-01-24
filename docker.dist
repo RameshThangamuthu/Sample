@@ -17,5 +17,5 @@ WORKDIR /usr/src/testng/
 
 # Additional support files that's needed but not for the build
 #COPY supportfiles /usr/src/testng/supportfiles
-CMD [ "mvn -Dtest=TestDocker" ]
+CMD [ "mvn -Dtest=TestRunner" ]
 #CMD [ "mvn test" ]
