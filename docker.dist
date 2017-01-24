@@ -18,5 +18,5 @@ WORKDIR /usr/src/testng/
 # Additional support files that's needed but not for the build
 #COPY supportfiles /usr/src/testng/supportfiles
 CMD [ "mvn -Dtest=TestDocker" ]
-step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
+CMD["step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])"]
 #CMD [ "mvn test" ]
