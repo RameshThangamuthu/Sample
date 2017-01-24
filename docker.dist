@@ -16,6 +16,6 @@ COPY src /usr/src/testng/src
 WORKDIR /usr/src/testng/
 ADD . /usr/src/testing
 # Additional support files that's needed but not for the build
-#COPY supportfiles /usr/src/testng/supportfiles
-ONTEST CMD [ "mvn -Dtest=TestRunner" ]
+#COPY supportfiles /usr/src/testng/supportfile
+CMD [ "mvn -Dtest=TestRunner" ]
 #CMD [ "mvn test" ]
