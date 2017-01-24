@@ -38,16 +38,16 @@
 	</dependencies>
 
 	<build>
- 
-		    <directory>target</directory>
-		    <outputDirectory>target/classes</outputDirectory>
-		    <finalName>${artifactId}-${version}</finalName>
-		     <sourceDirectory>src/main/java/com/mkyong/controller</sourceDirectory>
-		      <testSourceDirectory>src/main/java/com/mkyong/controller</testSourceDirectory>
-      	</build>
+
+				    <directory>target</directory>
+				    <outputDirectory>target/classes</outputDirectory>
+				    <finalName>${artifactId}-${version}</finalName>
+				     <sourceDirectory>src/main/java/com/mkyong/controller</sourceDirectory>
+				      <testSourceDirectory>src/main/java/com/mkyong/controller</testSourceDirectory>
+			
 	
 	
-	<build>
+	
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
