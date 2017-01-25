@@ -1,10 +1,10 @@
 package  com.mkyong.web.controller;
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.notification.Failure;
-import org.junit.Assert;
-import org.junit.Test;
-
+//import org.junit.runner.JUnitCore;
+//import org.junit.runner.Result;
+//import org.junit.runner.notification.Failure;
+//import org.junit.Assert;
+//import org.junit.Test;
+import junit.framework.*;
 
 public class ATestRunner {
    public static void main(String[] args) {
