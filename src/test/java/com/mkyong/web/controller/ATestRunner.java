@@ -1,5 +1,5 @@
 package  com.mkyong.web.controller;
-mport org.junit.runner.JUnitCore;
+import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 import org.junit.Assert;
