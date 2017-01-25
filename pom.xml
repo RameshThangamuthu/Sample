@@ -42,9 +42,10 @@
 		<directory>target</directory>
 		<outputDirectory>target/classes</outputDirectory>
 		<finalName>${artifactId}-${version}</finalName>
+		<!--
 		<sourceDirectory>src/main/java/com/mkyong/web/controller</sourceDirectory>
 		<testSourceDirectory>src/main/java/com/mkyong/web/controller</testSourceDirectory>
-			
+		-->
 	
 	
 	
