@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 
-public class TestRunner {
+public class ATestRunner {
    public static void main(String[] args) {
       Result result = JUnitCore.runClasses(TestDocker.class);
 		
