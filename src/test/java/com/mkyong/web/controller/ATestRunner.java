@@ -4,7 +4,7 @@ package  com.mkyong.web.controller;
 //import org.junit.runner.notification.Failure;
 //import org.junit.Assert;
 //import org.junit.Test;
-import junit.framework.*;
+import org.junit.*;
 
 public class ATestRunner {
    public static void main(String[] args) {
