@@ -18,4 +18,4 @@ ADD . /usr/src/testing
 # Additional support files that's needed but not for the build
 #COPY supportfiles /usr/src/testng/supportfile
 #CMD [ "mvn -Dtest=TestRunner test" ]
-CMD [ "mvn test" ]
+CMD mvn test
