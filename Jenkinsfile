@@ -26,7 +26,7 @@ node { // <1>
    echo 'Current Build Number: ' + currentBuild.number;  
 
    echo 'Parameter Owner: ' + params.owner;
-  
+
    
     stage('Build') { // <2>
        echo 'Checking out the EDGE project...';
@@ -34,7 +34,8 @@ node { // <1>
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/RameshThangamuthu/Sample']]]);
        echo 'Building the EDGE project...';
        
-       
+      //For Nexus   
+      sh "mvn clean package"
        
        //archiveArtifacts captures the files built matching the include pattern (**/target/*.jar) and saves them to the Jenkins master for later retrieval.
        //Archiving artifacts is not a substitute for using external artifact repositories such as Artifactory or Nexus and should be considered only for basic reporting and file archival.
@@ -46,6 +47,8 @@ node { // <1>
     }
     stage('Test') {
        echo 'Testing the EDGE project...';
+         //For Nexus   
+        sh "mvn -Dtest=TestDocker"
        try {
             //sh 'make check'
         }
@@ -54,7 +57,14 @@ node { // <1>
         }
         /* .. snip .. */
     }
-    stage('Deploy') {
+  
+   stage('upload'){    
+     //sh 'tar -zcvf archive.tar.gz /var/lib/jenkins/workspace/test_docker_1/target/'    
+     //nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '${ITEM_ROOTDIR}/archive.tar.gz', type: 'gzip']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'    
+     nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '*', type: '*']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'  
+   }
+  
+  stage('Deploy') {
        echo 'Deploying the EDGE project...';
        if (currentBuild.result == 'SUCCESS') {
           echo 'Success Success'
