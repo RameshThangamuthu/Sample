@@ -33,8 +33,8 @@ node { // <1>
        checkout scm 
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/RameshThangamuthu/Sample']]]);
        echo 'Building the EDGE project...';
-       
-      //For Nexus   
+        
+      //For Nexus
       sh "mvn clean package"
        
        //archiveArtifacts captures the files built matching the include pattern (**/target/*.jar) and saves them to the Jenkins master for later retrieval.
