@@ -33,10 +33,11 @@ node { // <1>
        checkout scm 
        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/RameshThangamuthu/Sample']]]);
        echo 'Building the EDGE project...';
-       sh 'echo hi>hello.txt'
+       
         //For Nexus
+        sh 'echo hi>hello.txt'
         sh 'mvn clean package'
-       sh 'find -newer hello.txt'
+       
        //archiveArtifacts captures the files built matching the include pattern (**/target/*.jar) and saves them to the Jenkins master for later retrieval.
        //Archiving artifacts is not a substitute for using external artifact repositories such as Artifactory or Nexus and should be considered only for basic reporting and file archival.
        //archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true //
@@ -68,7 +69,11 @@ node { // <1>
     //sh 'tar -zcvf archive.tar.gz /var/lib/jenkins/workspace/test_docker_1/target/'
     //nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '${ITEM_ROOTDIR}/archive.tar.gz', type: 'gzip']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'
     //Working
-    nexusArtifactUploader artifacts: [[artifactId: "${JOB_NAME}", classifier: '', file: '/var/lib/jenkins/workspace/an-example-first-pipeline-scm/target/surefire-reports/', type: 'xml']], credentialsId: '72dd7897-d032-42bc-bc07-42b0f58d9185', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8085/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: "${BUILD_NUMBER}"
+    
+    //sh 'find -newer hello.txt'  
+    sh 'find . -type f -newer hello.txt -print0 | tar -czvf artifacts.tar.gz --ignore-failed-read --null -T -'
+    nexusArtifactUploader artifacts: [[artifactId: "${JOB_NAME}", classifier: '', file: 'artifacts.tar.gz', type: 'gzip']], credentialsId: '72dd7897-d032-42bc-bc07-42b0f58d9185', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8085/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: "${BUILD_NUMBER}"
+    sh 'rm hello.txt'
   }
   
   stage('Deploy') {
