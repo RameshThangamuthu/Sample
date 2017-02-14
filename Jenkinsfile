@@ -68,7 +68,7 @@ node { // <1>
     //sh 'tar -zcvf archive.tar.gz /var/lib/jenkins/workspace/test_docker_1/target/'
     //nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '${ITEM_ROOTDIR}/archive.tar.gz', type: 'gzip']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'
     //Working
-    nexusArtifactUploader artifacts: [[artifactId: "${JOB_NAME}", classifier: '', file: '/var/lib/jenkins/workspace/an-example-first-pipeline-scm/target/surefire-reports/', type: '']], credentialsId: '72dd7897-d032-42bc-bc07-42b0f58d9185', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8085/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: "${BUILD_NUMBER}"
+    nexusArtifactUploader artifacts: [[artifactId: "${JOB_NAME}", classifier: '', file: '/var/lib/jenkins/workspace/an-example-first-pipeline-scm/target/surefire-reports/', type: 'xml']], credentialsId: '72dd7897-d032-42bc-bc07-42b0f58d9185', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8085/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: "${BUILD_NUMBER}"
   }
   
   stage('Deploy') {
