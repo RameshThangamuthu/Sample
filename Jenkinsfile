@@ -47,8 +47,9 @@ node { // <1>
     }
     stage('Test') {
        echo 'Testing the EDGE project...';
-        //For Nexus   
-        sh 'mvn -Dtest=TestDocker';
+       
+       //For Nexus
+       sh 'mvn -Dtest=TestDocker'
       
        try {
             //sh 'make check'
