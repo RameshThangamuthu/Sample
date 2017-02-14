@@ -60,11 +60,11 @@ node { // <1>
         /* .. snip .. */
     }
   
-   stage('upload'){    
-     //sh 'tar -zcvf archive.tar.gz /var/lib/jenkins/workspace/test_docker_1/target/'    
-     //nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '${ITEM_ROOTDIR}/archive.tar.gz', type: 'gzip']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'    
-     nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '*', type: '*']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'  
-   }
+  stage('Upload') {
+    //sh 'tar -zcvf archive.tar.gz /var/lib/jenkins/workspace/test_docker_1/target/'
+    //nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '${ITEM_ROOTDIR}/archive.tar.gz', type: 'gzip']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'
+    nexusArtifactUploader artifacts: [[artifactId: '${JOB_NAME}', classifier: '', file: '*', type: '*']], credentialsId: 'Nexus', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8081/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: '${BUILD_NUMBER}'
+  }
   
   stage('Deploy') {
        echo 'Deploying the EDGE project...';
