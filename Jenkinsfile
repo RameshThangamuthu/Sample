@@ -71,6 +71,7 @@ node { // <1>
     //Working
     
     //sh 'find -newer hello.txt'  
+    def PWD = pwd(); //"${PWD}/artifacts.tar.gz"
     sh 'find . -type f -newer hello.txt -print0 | tar -czvf artifacts.tar.gz --ignore-failed-read --null -T -'
     nexusArtifactUploader artifacts: [[artifactId: "${JOB_NAME}", classifier: '', file: 'artifacts.tar.gz', type: 'gzip']], credentialsId: '72dd7897-d032-42bc-bc07-42b0f58d9185', groupId: 'org.jenkins-ci.main', nexusUrl: '13.55.146.108:8085/nexus', nexusVersion: 'nexus2', protocol: 'http', repository: 'releases',version: "${BUILD_NUMBER}"
     sh 'rm hello.txt'
