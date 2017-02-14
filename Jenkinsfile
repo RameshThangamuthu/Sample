@@ -49,7 +49,7 @@ node { // <1>
        echo 'Testing the EDGE project...';
        
        //For Nexus
-       sh 'mvn -Dtest=TestDocker'
+       //sh 'mvn -Dtest=TestDocker'
       
        try {
             //sh 'make check'
