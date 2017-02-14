@@ -25,7 +25,7 @@ node { // <1>
    
    echo 'Current Build Number: ' + currentBuild.number;  
 
-   echo 'Parameter Owner: ' + params.owner;
+   //echo 'Parameter Owner: ' + params.owner;
 
    
     stage('Build') { // <2>
